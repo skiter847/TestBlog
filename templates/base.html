@@ -16,7 +16,7 @@
 <header>
     <div class="header__inner">
         <div class="title">
-            <a href="#"><span>TestBlog</span></a>
+            <a href="{% url 'blog:post_list' %}"><span>TestBlog</span></a>
         </div>
         {% if user.is_authenticated %}
             <div class="user-menu">
@@ -54,8 +54,10 @@
                     <div class="card-footer">
                         <div class="published">Опубликовано: {{ post.publish }}</div>
                         <div class="button-group">
-                            <a class="change-link" href="{{ post.url_to_edit_object }}">Редактировать</a>
-                            <a class="read", href="{{ post.get_absolute_url }}">Читать</a>
+                            {% if user %}
+                                <a class="change-link" href="{{ post.url_to_edit_object }}">Редактировать</a>
+                            {% endif %}
+                            <a class="read" href="{{ post.get_absolute_url }}">Читать</a>
                         </div>
                     </div>
                 </div>

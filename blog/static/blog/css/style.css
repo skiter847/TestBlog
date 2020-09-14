@@ -129,3 +129,23 @@ header {
     border-radius: 10px;
     padding: 10px;
 }
+
+.post-title{
+    text-align: center;
+    font-size: 99px;
+}
+
+.post-info{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.post-info * {
+    color: grey;
+}
+
+.post-body{
+    margin-top: 15px;
+    font-size: 44px;
+}
