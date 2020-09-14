@@ -1,10 +1,71 @@
+{% load static %}
+{% load admin_urls %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}
+        Главная
+    {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'blog/css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<header>
+    <div class="header__inner">
+        <div class="title">
+            <a href="#"><span>TestBlog</span></a>
+        </div>
+        {% if user.is_authenticated %}
+            <div class="user-menu">
+                <div class="profile_wrapper">
+                    <img class="avatar" src="{% static 'blog/img/avatar.png' %}" alt=""
+                         style="width: 45px; height: 45px;">
+                    <div class="username">{{ user.username }}</div>
+
+                </div>
+                <div class="admin-panel"><a href='{% url 'admin:index' %}'>Админ панель</a></div>
+                <div class="logout"><a href='#'>Выход</a></div>
+            </div>
+        {% else %}
+            <div class="user-menu">
+                <div class="login"><a href="#">Вход</a></div>
+                <div class="register"><a href="#">Регистрация</a></div>
+
+            </div>
+        {% endif %}
+    </div>
+</header>
+<div class="content">
+    {% block content %}
+        {% for post in posts %}
+            <div class="card">
+                <div class="card-title-image_wrapper">
+                    <div class="card-title-image"><img
+                            src='{% if post.photo_title %} {{ post.photo_title.url }} {% else %} {% static 'blog/img/no_image.png' %}
+                {% endif %}' alt="" style="width: 150px; height: 150px;">
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title"><a href={{ post.get_absolute_url }}>{{ post.title }}</a></div>
+                    <div class="card-body">{{ post.body| truncatechars:150 }}</div>
+                    <div class="card-footer">
+                        <div class="published">Опубликовано: {{ post.publish }}</div>
+                        <div class="button-group">
+                            <a class="change-link" href="{{ post.url_to_edit_object }}">Редактировать</a>
+                            <a class="read", href="{{ post.get_absolute_url }}">Читать</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+
+
+    {% endblock %}
+</div>
 
 </body>
 </html>
