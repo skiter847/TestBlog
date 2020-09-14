@@ -18,6 +18,10 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("blog:post_detail", args=[self.id])
 
+    def url_to_edit_object(obj):
+        url = reverse('admin:%s_%s_change' % (obj._meta.app_label, obj._meta.model_name), args=[obj.id])
+        return url
+
     def __str__(self):
         return self.title
 
