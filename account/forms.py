@@ -10,7 +10,7 @@ class RegistrationUserForm(forms.ModelForm):
         model = User
         fields = ['username', 'email']
         labels = {
-            'username': 'Имя пользывателя',
+            'username': 'Имя пользователя',
             'email': 'Почта'
         }
 
