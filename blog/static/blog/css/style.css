@@ -122,7 +122,7 @@ header {
     justify-content: space-between;
 }
 
-.read, .change-link{
+.read, .change-link {
     background-color: #FFC500;
     font-size: 21px;
     text-align: center;
@@ -130,12 +130,12 @@ header {
     padding: 10px;
 }
 
-.post-title{
+.post-title {
     text-align: center;
     font-size: 99px;
 }
 
-.post-info{
+.post-info {
     margin-top: 15px;
     display: flex;
     justify-content: space-between;
@@ -145,12 +145,56 @@ header {
     color: grey;
 }
 
-.pagination{
+.pagination {
     text-align: center;
     font-size: 24px;
 }
 
-.post-body{
+.post-body {
     margin-top: 15px;
     font-size: 44px;
 }
+
+.login-form {
+    position: absolute;
+    top: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    font-size: 24px;
+
+
+}
+
+.label-field{
+    padding: 5px;
+}
+
+.login-form input{
+    font-size: 20px;
+    border-radius: 10px;
+    height: 45px;
+}
+
+.login-form form{
+    padding: 35px;
+    background-color: #FFC500;
+    border-radius: 10px;
+}
+
+.login-form form button{
+    font-size: 20px;
+    margin-left: 25px;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    font-family: 'Kumbh Sans', sans-serif;
+    font-weight: bold;
+    border-radius: 6px;
+}
+
+.error-message{
+    text-align: center;
+}
+

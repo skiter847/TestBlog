@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Регистрация
+{% endblock %}
+
+{% block content %}
+    <div class="login-form">
+        <form method="post">
+            {% for field in form %}
+                <div class="label-field">
+                    {{ field.label }}
+                </div>
+                <div class="field">
+                    {{ field }}
+                </div>
+            {% endfor %}
+
+
+            {% csrf_token %}
+            <button type="submit">Зарегистрироваться</button>
+            {% if form.errors %}
+                {% for key, value in form.errors.items %}
+                    <span class="error-message">
+                    {{ value }}
+                </span>
+                {% endfor %}
+
+
+
+            {% endif %}
+        </form>
+
+    </div>
+{% endblock %}
