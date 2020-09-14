@@ -155,7 +155,7 @@ header {
     font-size: 44px;
 }
 
-.login-form {
+.register-form, .login-form {
     position: absolute;
     top: 50%;
     margin-right: -50%;
@@ -170,21 +170,25 @@ header {
     padding: 5px;
 }
 
-.login-form input{
+.register-form input, .login-form input{
     font-size: 20px;
     border-radius: 10px;
     height: 45px;
 }
 
-.login-form form{
+.register-form form, .login-form form{
     padding: 35px;
     background-color: #FFC500;
     border-radius: 10px;
 }
 
-.login-form form button{
+.button{
+    display: flex;
+    justify-content: center;
+}
+
+.register-form form button, .login-form form button{
     font-size: 20px;
-    margin-left: 25px;
     margin-top: 15px;
     padding: 10px;
     background-color: black;
