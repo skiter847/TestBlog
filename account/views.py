@@ -1,5 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from .forms import RegistrationUserForm
+from django.contrib.auth.models import User
+
 
 # Create your views here.
-def login(request):
-    pass
+def register(request):
+    form = RegistrationUserForm()
+    if request.method == 'POST':
+        form = RegistrationUserForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            new_user = User.objects.create(username=cd['username'], email=cd['email'], is_staff=True)
+            new_user.set_password(cd['password'])
+            new_user.save()
+
+            return redirect("blog:post_list")
+
+    return render(request, 'account/login.html', {'form': form})
