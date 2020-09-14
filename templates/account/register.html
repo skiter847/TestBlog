@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-    <div class="login-form">
+    <div class="register-form">
         <form method="post">
             {% for field in form %}
                 <div class="label-field">
@@ -18,7 +18,9 @@
 
 
             {% csrf_token %}
-            <button type="submit">Зарегистрироваться</button>
+            <div class="button">
+                <button type="submit">Зарегистрироваться</button>
+            </div>
             {% if form.errors %}
                 {% for key, value in form.errors.items %}
                     <span class="error-message">
