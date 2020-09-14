@@ -27,12 +27,12 @@
 
                 </div>
                 <div class="admin-panel"><a href='{% url 'admin:index' %}'>Админ панель</a></div>
-                <div class="logout"><a href='#'>Выход</a></div>
+                <div class="logout"><a href='{% url 'account:logout' %}'>Выход</a></div>
             </div>
         {% else %}
             <div class="user-menu">
-                <div class="login"><a href="#">Вход</a></div>
-                <div class="register"><a href="#">Регистрация</a></div>
+                <div class="login"><a href="{% url 'account:login' %}">Вход</a></div>
+                <div class="register"><a href="{% url 'account:register' %}">Регистрация</a></div>
 
             </div>
         {% endif %}
