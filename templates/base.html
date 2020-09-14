@@ -54,7 +54,7 @@
                     <div class="card-footer">
                         <div class="published">Опубликовано: {{ post.publish }}</div>
                         <div class="button-group">
-                            {% if user %}
+                            {% if user.is_authenticated %}
                                 <a class="change-link" href="{{ post.url_to_edit_object }}">Редактировать</a>
                             {% endif %}
                             <a class="read" href="{{ post.get_absolute_url }}">Читать</a>
