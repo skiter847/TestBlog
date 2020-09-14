@@ -145,6 +145,11 @@ header {
     color: grey;
 }
 
+.pagination{
+    text-align: center;
+    font-size: 24px;
+}
+
 .post-body{
     margin-top: 15px;
     font-size: 44px;
